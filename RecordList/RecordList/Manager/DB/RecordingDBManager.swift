@@ -28,7 +28,7 @@ extension RecordingDBManager {
       object.filePath = fileURL.path
       object.startedAt = startedAt
       object.endedAt = endedAt
-      object.duration = endedAt.timeIntervalSince(startedAt)
+      object.totalTime = endedAt.timeIntervalSince(startedAt)
       
       let realm = try! Realm()
       try! realm.write {
@@ -72,6 +72,7 @@ extension RecordingDBManager {
       )
       Realm.Configuration.defaultConfiguration = config
    }
+   
    func fetchRecordings() {
       
       let realm = try! Realm()

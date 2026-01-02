@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GraphView: UIView {
+final class GraphView: CustomView {
 
     private var amplitudes: [CGFloat] = []
     private let maxSamples = 150
@@ -32,8 +32,8 @@ final class GraphView: UIView {
             i == 0 ? path.move(to: CGPoint(x: x, y: y))
                    : path.addLine(to: CGPoint(x: x, y: y))
         }
-
-       UIColor.white.setStroke()
+       let storkeColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1.0)
+       UIColor.black.setStroke()
         path.lineWidth = 2
         path.stroke()
     }

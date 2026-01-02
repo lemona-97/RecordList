@@ -20,7 +20,7 @@ final class RecordingObject: Object {
    @Persisted var startedAt: Date
    // 녹음 종료 시각
    @Persisted var endedAt: Date
-   @Persisted var duration: Double // 필요 할 수도 있음
+   @Persisted var totalTime: Double // 필요 할 수도 있음
 }
 
 extension RecordingObject {

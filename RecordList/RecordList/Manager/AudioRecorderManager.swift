@@ -54,6 +54,7 @@ final class AudioRecorderManager {
    private var quality: AudioQuality
    
    private var recordingStartDate: Date?
+   private var audioFile: AVAudioFile?
    private var recordingFileURL: URL?
    
    var hasTempRecording: Bool {
@@ -71,7 +72,6 @@ final class AudioRecorderManager {
    
    func updateQuality(_ quality: AudioQuality) {
       self.quality = quality
-      stop()
       setupSession()
    }
    
@@ -85,19 +85,30 @@ final class AudioRecorderManager {
    
    func start() {
       guard state.value == .idle else { return } // 유휴 상태일때만 동작하도록
+      
+      setupSession()
       recordingStartDate = Date()
       recordingFileURL = makeRecordingFileURL()
+
       
       let inputNode = audioEngine.inputNode
       let format = inputNode.inputFormat(forBus: 0)
+      
+      audioFile = try? AVAudioFile(
+         forWriting: recordingFileURL!,
+         settings: format.settings
+      )
       
       inputNode.installTap(
          onBus: 0,
          bufferSize: quality.bufferSize,
          format: format
       ) { [weak self] buffer, _ in
-         let amplitude = self?.rms(from: buffer) ?? 0
-         DispatchQueue.main.async {
+         guard let self else { return }
+         try? self.audioFile?.write(from: buffer)
+
+         let amplitude = rms(from: buffer)
+         DispatchQueue.main.async { [weak self] in
             self?.onAmplitudeUpdate?(amplitude)
          }
       }
@@ -127,11 +138,6 @@ final class AudioRecorderManager {
       recordingStartDate = nil
       recordingFileURL = nil
       state.send(.idle)
-   }
-   
-   func resumeIfPossible() {
-      guard state.value == .interrupted else { return }
-      start()
    }
    
    // Root Mean Square

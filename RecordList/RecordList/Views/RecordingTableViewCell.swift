@@ -44,7 +44,7 @@ final class RecordingTableViewCell: UITableViewCell {
           displayBaseDate = model.startTime
       }
       
-      recordedDateLabel.text = displayBaseDate.toString(format: "E M:d")
+      recordedDateLabel.text = displayBaseDate.toString(format: "E M/d")
       
       startTimeLabel.text = model.startTime.toString(format: "HH:mm")
       endTimeLabel.text = model.endTime.toString(format: "HH:mm")
