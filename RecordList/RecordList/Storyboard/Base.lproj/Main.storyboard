@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -303,8 +304,14 @@
                                     <action selector="saveCurrentRecordButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZjW-Xi-S0J"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itK-V2-lzo" userLabel="recordPlayerView">
-                                <rect key="frame" x="393" y="118" width="393" height="666"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orq-pJ-W1Z">
+                                <rect key="frame" x="27.666666666666668" y="673.33333333333337" width="43.333333333333329" height="14.333333333333371"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itK-V2-lzo" userLabel="recordPlayerView">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yi9-aZ-4yB" userLabel="playButton" customClass="CustomButton" customModule="RecordList" customModuleProvider="target">
                                         <rect key="frame" x="164.66666666666666" y="578" width="64" height="64"/>
@@ -406,7 +413,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="eec-oT-V6l" firstAttribute="trailing" secondItem="WYp-GO-EAt" secondAttribute="trailing" id="1lK-hE-amD"/>
                                     <constraint firstItem="Jwn-Ao-tOd" firstAttribute="top" secondItem="itK-V2-lzo" secondAttribute="top" constant="16" id="9TW-G1-Qfx"/>
@@ -432,12 +439,6 @@
                                     <constraint firstItem="zuo-5p-isH" firstAttribute="top" secondItem="WYp-GO-EAt" secondAttribute="bottom" constant="3" id="s7I-bn-lp1"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orq-pJ-W1Z">
-                                <rect key="frame" x="27.666666666666668" y="673.33333333333337" width="43.333333333333329" height="14.333333333333371"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0039215686274509803" green="0.019607843137254902" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -501,7 +502,7 @@
         <image name="pause.fill" catalog="system" width="114" height="128"/>
         <image name="play.fill" catalog="system" width="120" height="128"/>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
