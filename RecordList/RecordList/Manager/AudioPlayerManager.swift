@@ -87,7 +87,7 @@ private extension AudioPlayerManager {
             cleanup()
             return
          }
-         print("exists:", FileManager.default.fileExists(atPath: fileURL.path()))
+
          let player = try AVAudioPlayer(contentsOf: fileURL)
          player.delegate = self
          player.prepareToPlay()

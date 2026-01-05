@@ -68,7 +68,6 @@ final class MainViewModel: MainViewModelType {
          .sink { [weak self] in
             guard let self else { return }
             
-            
             if self.recorder.state.value == .interruptFinished,
                self.recorder.hasTempRecording {
                self.recorder.stop()
@@ -125,13 +124,13 @@ final class MainViewModel: MainViewModelType {
             self?.player.play(record: record)
          }
          .store(in: &cancellables)
-
+      
       input.didTapPause
          .sink { [weak self] _ in
             self?.player.pause()
          }
          .store(in: &cancellables)
-
+      
       input.movedTime
          .sink { [weak self] time in
             self?.player.seek(to: time)
@@ -186,6 +185,6 @@ private extension MainViewModel {
    }
    
    func bindPlayer() {
-
+      
    }
 }

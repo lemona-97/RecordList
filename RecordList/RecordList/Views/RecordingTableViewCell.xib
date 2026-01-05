@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecordingTableViewCell" rowHeight="42" id="KGk-i7-Jjw" customClass="RecordingTableViewCell" customModule="RecordList" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="816" height="42"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="816" height="42"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -26,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyA-pK-deh">
-                        <rect key="frame" x="96" y="4" width="720" height="34"/>
+                        <rect key="frame" x="96" y="4" width="704" height="34"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JtJ-zI-voi" userLabel="sleepTimeView" customClass="GradientView" customModule="RecordList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="720" height="34"/>
@@ -70,7 +71,6 @@
                             <constraint firstItem="JtJ-zI-voi" firstAttribute="top" secondItem="WyA-pK-deh" secondAttribute="top" id="eUO-3e-xe9"/>
                             <constraint firstItem="JtJ-zI-voi" firstAttribute="leading" secondItem="WyA-pK-deh" secondAttribute="leading" id="h1Q-qF-Prl"/>
                             <constraint firstAttribute="bottom" secondItem="JtJ-zI-voi" secondAttribute="bottom" id="jFD-KJ-bqF"/>
-                            <constraint firstAttribute="width" constant="720" id="o7x-TR-wPl"/>
                         </constraints>
                     </view>
                 </subviews>
