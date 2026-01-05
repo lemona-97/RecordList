@@ -73,9 +73,7 @@ extension CAGradientLayer {
       return tan(𝜽 * CGFloat.pi / 180)
    }
    
-   
    // Overloads
-   
    /// Sets the start and end points on a gradient layer for a given angle.
    func calculatePoints(for angle: Int) {
       calculatePoints(for: CGFloat(angle))

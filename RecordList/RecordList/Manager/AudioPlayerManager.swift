@@ -9,24 +9,23 @@ import AVFoundation
 import Combine
 
 final class AudioPlayerManager: NSObject {
-
    enum State {
       case idle
       case playing
       case paused
       case finished
    }
-
+   
    // MARK: - Output
    let state = CurrentValueSubject<State, Never>(.idle)
    let progress = CurrentValueSubject<Double, Never>(0) // 0.0 ~ 1.0
    let duration = CurrentValueSubject<TimeInterval, Never>(0)
    let amplitude = PassthroughSubject<Float, Never>()
-
+   
    // MARK: - Private
    private var player: AVAudioPlayer?
    private var timer: Timer?
-
+   
 }
 
 extension AudioPlayerManager {
@@ -39,19 +38,19 @@ extension AudioPlayerManager {
          startTimer()
          return
       }
-
+      
       prepare(record) // 새로 재생
       player?.play()
       state.send(.playing)
       startTimer()
    }
-
+   
    func pause() {
       player?.pause()
       state.send(.paused)
       stopTimer()
    }
-
+   
    func seek(to time: TimeInterval) {
       guard let player else { return }
       player.currentTime = time
@@ -59,7 +58,7 @@ extension AudioPlayerManager {
          progress.send(player.currentTime / player.duration)
       }
    }
-
+   
    func stop() {
       player?.stop()
       cleanup()
@@ -87,7 +86,7 @@ private extension AudioPlayerManager {
             cleanup()
             return
          }
-
+         
          let player = try AVAudioPlayer(contentsOf: fileURL)
          player.delegate = self
          player.prepareToPlay()
@@ -99,7 +98,7 @@ private extension AudioPlayerManager {
          cleanup()
       }
    }
-
+   
    func startTimer() {
       stopTimer()
       print("타이머 시작")
@@ -116,12 +115,12 @@ private extension AudioPlayerManager {
          }
       }
    }
-
+   
    func stopTimer() {
       timer?.invalidate()
       timer = nil
    }
-
+   
    func cleanup() {
       print("재생파일 정리")
       stopTimer()

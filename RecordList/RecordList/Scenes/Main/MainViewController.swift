@@ -248,7 +248,7 @@ private extension MainViewController {
             }
          }
          .store(in: &cancellables)
-
+      
       output.playerCurrentTime
          .receive(on: RunLoop.main)
          .sink { [weak self] progress in

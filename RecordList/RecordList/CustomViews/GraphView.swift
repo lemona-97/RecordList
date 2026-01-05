@@ -8,7 +8,6 @@
 import UIKit
 
 final class GraphView: CustomView {
-
     private var amplitudes: [CGFloat] = []
     private let maxSamples = 150
 

@@ -89,7 +89,6 @@ final class AudioRecorderManager {
       setupSession()
       recordingStartDate = Date()
       recordingFileURL = makeRecordingFileURL()
-
       
       let inputNode = audioEngine.inputNode
       let format = inputNode.inputFormat(forBus: 0)
@@ -106,7 +105,7 @@ final class AudioRecorderManager {
       ) { [weak self] buffer, _ in
          guard let self else { return }
          try? self.audioFile?.write(from: buffer)
-
+         
          let amplitude = rms(from: buffer)
          DispatchQueue.main.async { [weak self] in
             self?.onAmplitudeUpdate?(amplitude)
@@ -188,7 +187,6 @@ private extension AudioRecorderManager {
          }
          
       case .ended:
-
          state.send(.interruptFinished)
       @unknown default:
          break
